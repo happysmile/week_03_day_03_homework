@@ -3,7 +3,7 @@ require_relative('../db/sql_runner.rb')
 
 class Artist
 
-  attr_reader :first_name, :last_name
+  attr_reader :first_name, :last_name, :id
 
   def initialize(options)
     @first_name = options['first_name']

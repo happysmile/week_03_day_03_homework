@@ -3,19 +3,20 @@ require_relative('../db/sql_runner.rb')
 
 class Album
 
-  attr_accessor :title, :genre
-  attr_reader :id, :artist_id
+  attr_accessor :title, :genre, :year, :artist_id
+  attr_reader :id
 
   def initialize(options)
     @title = options['title']
+    @year = options['year']
     @genre = options['genre']
-    @artist_id = options['customer_id'].to_i()
+    @artist_id = options['artist_id'].to_i()
     @id = options['id'].to_i() if options['id']
   end
 
   def save()
-    sql = "INSERT INTO albums (title, genre, artist_id) VALUES ($1, $2, $3) RETURNING id"
-    values = [@title, @genre, @artist_id]
+    sql = "INSERT INTO albums (title, year, genre, artist_id) VALUES ($1, $2, $3, $4) RETURNING id"
+    values = [@title, @year, @genre, @artist_id]
     results = SqlRunner.run(sql, values)
     @id = results[0]["id"].to_i
   end
@@ -35,6 +36,10 @@ class Album
   def self.delete_all()
     sql = "DELETE FROM albums"
     SqlRunner.run(sql)
+  end
+
+  def self.find_album_by_artist_id(artist_id)
+
   end
 
 end
