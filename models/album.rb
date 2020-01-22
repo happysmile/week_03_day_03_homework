@@ -22,7 +22,7 @@ class Album
   end
 
   def delete()
-    sql = "DELETE * FROM albums WHERE id = $1"
+    sql = "DELETE FROM albums WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end
@@ -63,8 +63,8 @@ class Album
   end
 
   def update()
-    sql = "UPDATE albums SET (title, year, genre, artist_id) = ($1, $2, $3, £4) WHERE id = $5"
-    values = [@title, @year, @genre, @artist_id]
+    sql = "UPDATE albums SET (title, year, genre, artist_id) = ($1, $2, $3, $4) WHERE id = $5"
+    values = [@title, @year, @genre, @artist_id, @id]
     SqlRunner.run(sql, values)
   end
 
