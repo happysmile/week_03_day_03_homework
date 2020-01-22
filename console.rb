@@ -18,9 +18,10 @@ like_a_prayer = Album.new({"title" => "Like a Prayer", "year" => 1989, "genre" =
 like_a_prayer.save()
 
 american_life = Album.new({"title" => "American Life", "year" => 2003, "genre" => "pop", "artist_id" => madonna.id})
+american_life.save()
 
 speak_now = Album.new({"title" => "Speak Now", "year" => 2010, "genre" => "pop", "artist_id" => taylor_swift.id})
-american_life.save()
+speak_now.save()
 
 lover = Album.new({"title" => "Lover", "year" => 2019, "genre" => "pop", "artist_id" => taylor_swift.id})
 lover.save()
