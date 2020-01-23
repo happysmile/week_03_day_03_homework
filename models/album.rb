@@ -46,6 +46,15 @@ class Album
     return album
   end
 
+  # the following function should probably be in artist.rb!
+  # and it would look like this
+  # def self.find_albums()
+  #   sql = "SELECT * FROM albums WHERE id = $1"
+  #   values = [@id]
+  #   albums = SqlRunner.run(sql, values)
+  #   return albums.map{|album| Album.new(album)}
+  # end
+
   def self.find_albums_by_artist_id(artist_id)
     sql = "SELECT * FROM albums WHERE artist_id = $1"
     values = [artist_id]

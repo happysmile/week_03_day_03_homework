@@ -49,4 +49,14 @@ class Artist
     SqlRunner.run(sql, values)
   end
 
+  # the following function should probably replace
+  # self.find_albums_by_artist_id(artist_id) in albums.rb
+  #
+  # def self.find_albums()
+  #   sql = "SELECT * FROM albums WHERE id = $1"
+  #   values = [@id]
+  #   albums = SqlRunner.run(sql, values)
+  #   return albums.map{|album| Album.new(album)}
+  # end
+
 end
